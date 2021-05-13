@@ -70,13 +70,8 @@ namespace Arducam {
     export enum IMAGE_RESOLUTION {
          
         OV2640_320x240 = 2, 
-        OV2640_160x120 = 0,	
-        OV2640_176x144 = 1	,
-         OV2640_352x288 = 3	, 
          OV2640_640x480 = 4	, 
          OV2640_800x600 = 5	, 
-         OV2640_1024x768 = 6,	 
-         OV2640_1280x1024 = 7, 
          OV2640_1600x1200 = 8,
     }
 
