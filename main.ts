@@ -109,7 +109,7 @@ namespace Arducam {
         wrSensorReg8_8(0x12, 0x80)
         basic.pause(100);
         format = IMAGE_FORMAT.JPEG
-        if (format == IMAGE_FORMAT.JPEG) {
+        // if (format == IMAGE_FORMAT.JPEG) {
             wrSensorRegs8_8(OV2640_JPEG_INIT)
             wrSensorRegs8_8(OV2640_YUV422);
             wrSensorRegs8_8(OV2640_JPEG);
@@ -117,9 +117,9 @@ namespace Arducam {
             wrSensorReg8_8(0x15, 0x00);
             wrSensorRegs8_8(OV2640_320x240_JPEG);
             basic.showIcon(IconNames.Sad)
-        } else {
+        // } else {
             // wrSensorRegs8_8(OV2640_QVGA);
-        }
+        // }
     }
 
     /**
