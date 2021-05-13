@@ -12,7 +12,7 @@ namespace Arducam {
     const MAX_FIFO_SIZE = 0x5FFFF
     const BURST_FIFO_READ = 0x3C
 
-    function writeReg(pin: DigitalPin, addr: number, data: number) {
+    function writeReg(addr: number, data: number) {
         pins.digitalWritePin(DigitalPin.P0, 0);
         pins.spiWrite(addr | 0x80);
         pins.spiWrite(data);
@@ -45,7 +45,7 @@ namespace Arducam {
 
     function readFrame() {
         // get length
-        let length = ((readReg(FIFO_SIZE3).getUint8(0) << 16) | (readReg(FIFO_SIZE2).getUint8(0) << 8) | readReg(FIFO_SIZE1).getUint8(0)) & 0x07fffff;
+        let length = ((readReg(FIFO_SIZE3) << 16) | (readReg(FIFO_SIZE2) << 8) | readReg(FIFO_SIZE1)) & 0x07fffff;
         if (length >= MAX_FIFO_SIZE || length == 0) {
             return
         }
@@ -91,9 +91,9 @@ namespace Arducam {
     //% blockId=camera_init block="Init Camera with format $format and resolution $reso"
     export function initCamera(format: IMAGE_FORMAT, reso: IMAGE_RESOLUTION) {
         pins.digitalWritePin(DigitalPin.P0, 1);
-        writeReg(DigitalPin.P0, 0x07, 0x080);
+        writeReg(0x07, 0x080);
         basic.pause(100);
-        writeReg(DigitalPin.P0, 0x07, 0x00);
+        writeReg(0x07, 0x00);
         basic.pause(100);
 
         while(true) {
