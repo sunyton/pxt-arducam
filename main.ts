@@ -110,7 +110,7 @@ namespace Arducam {
         basic.pause(100);
         // format = IMAGE_FORMAT.JPEG
         // if (format == IMAGE_FORMAT.JPEG) {
-            wrSensorRegs8_8(OV2640_JPEG_INIT)
+            // wrSensorRegs8_8(OV2640_JPEG_INIT)
             // wrSensorRegs8_8(OV2640_YUV422);
             // wrSensorRegs8_8(OV2640_JPEG);
             // wrSensorReg8_8(0xff, 0x01);
