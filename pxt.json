@@ -10,6 +10,7 @@
     "files": [
         "README.md",
         "main.blocks",
+        "regs.ts",
         "main.ts"
     ],
     "testFiles": [
