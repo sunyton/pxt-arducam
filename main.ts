@@ -86,7 +86,7 @@ namespace Arducam {
     //% blockId=camera_init block="Init Camera with format $format and resolution $reso"
     export function initCamera(format: IMAGE_FORMAT, reso: IMAGE_RESOLUTION) {
         pins.digitalWritePin(DigitalPin.P0, 1);
-        writeReg(0x07, 0x080);
+        writeReg(0x07, 0x08);
         basic.pause(100);
         writeReg(0x07, 0x00);
         basic.pause(100);
