@@ -39,6 +39,8 @@ namespace Arducam {
 
     function wrSensorRegs8_8(regs: SensorReg[]) {
         regs.forEach(function (reg: SensorReg, index: number) {
+            console.log(reg[0])
+            console.log(reg[1])
           wrSensorReg8_8(reg[0], reg[1])
         })
     } 
