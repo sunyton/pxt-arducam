@@ -106,7 +106,7 @@ namespace Arducam {
         }
 
         wrSensorReg8_8(0xff, 0x01)
-        wrSensorReg8_8(0x12, 0x80)
+        // wrSensorReg8_8(0x12, 0x80)
         basic.pause(100);
         // format = IMAGE_FORMAT.JPEG
         // if (format == IMAGE_FORMAT.JPEG) {
