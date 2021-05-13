@@ -38,12 +38,7 @@ namespace Arducam {
         value: number
     }
     
-    function wrSensorRegs8_82(regs: reg[]) {
-        regs.forEach(function (reg: reg, index: number) {
-          wrSensorReg8_8(reg.addr, reg.value)
-          
-        })
-    }
+
 
 
     function wrSensorReg8_8(id: number, data: number) {
@@ -55,7 +50,7 @@ namespace Arducam {
 
     function wrSensorRegs8_8(regs: SensorReg[]) {
         regs.forEach(function (reg: SensorReg, index: number) {
-          wrSensorReg8_8(reg[0], reg[1])
+          wrSensorReg8_8(reg.addr, reg.value)
         })
     } 
 
@@ -125,17 +120,17 @@ namespace Arducam {
         // wrSensorReg8_8(0x12, 0x80)
         basic.pause(100);
         // format = IMAGE_FORMAT.JPEG
-        // if (format == IMAGE_FORMAT.JPEG) {
-        wrSensorRegs8_82(jpegInit)
-        wrSensorRegs8_82(yuv);
-        wrSensorRegs8_82(jpeg);
-        wrSensorReg8_8(0xff, 0x01);
-        wrSensorReg8_8(0x15, 0x00);
-        wrSensorRegs8_82(jpeg320_240);
-        basic.showIcon(IconNames.Sad)
-        // } else {
+        if (format == IMAGE_FORMAT.JPEG) {
+            wrSensorRegs8_8(OV2640_JPEG_INIT)
+            wrSensorRegs8_8(OV2640_YUV422);
+            wrSensorRegs8_8(OV2640_JPEG);
+            wrSensorReg8_8(0xff, 0x01);
+            wrSensorReg8_8(0x15, 0x00);
+            wrSensorRegs8_8(OV2640_320x240_JPEG);
+
+        } else {
             // wrSensorRegs8_8(OV2640_QVGA);
-        // }
+        }
     }
 
     /**
@@ -149,7 +144,6 @@ namespace Arducam {
         while(!(readReg(ARDUCHIP_TRIG) & CAP_DONE_MASK)) {
             // wait capture finished
         }
-        basic.showIcon(IconNames.Happy)
         readFrame();
         
     }
