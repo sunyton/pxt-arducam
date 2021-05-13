@@ -116,6 +116,7 @@ namespace Arducam {
             wrSensorReg8_8(0xff, 0x01);
             wrSensorReg8_8(0x15, 0x00);
             wrSensorRegs8_8(OV2640_320x240_JPEG);
+            basic.showIcon(IconNames.Sad)
         } else {
             // wrSensorRegs8_8(OV2640_QVGA);
         }
