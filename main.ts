@@ -131,6 +131,7 @@ namespace Arducam {
         while(!(readReg(ARDUCHIP_TRIG) & CAP_DONE_MASK)) {
             // wait capture finished
         }
+        basic.showIcon(IconNames.Happy)
         readFrame();
         
     }
