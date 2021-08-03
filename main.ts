@@ -12,7 +12,7 @@ namespace Arducam {
     const MAX_FIFO_SIZE = 0x5FFFF
     const BURST_FIFO_READ = 0x3C
 
-    let image: Array<number>;
+    // let image: Array<number>;
 
     function writeReg(addr: number, data: number) {
         pins.digitalWritePin(DigitalPin.P0, 0);
@@ -147,8 +147,8 @@ namespace Arducam {
 
 
     //% blockId=camera_on_image block="on image frame received"
-    export function on_image(maqueencb: (image: number[]) => void) {
-        image.push(1) 
+    export function on_image(callback: (image: number[]) => void) {
+        
     }
     
     
