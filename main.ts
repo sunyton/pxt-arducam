@@ -145,6 +145,11 @@ namespace Arducam {
         
     }
 
+
+    //% blockId=camera_on_image block="on image frame received"
+    export function on_image(maqueencb: (image: number[]) => void) {
+        image.push(1) 
+    }
     
     
 }
