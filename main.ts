@@ -12,7 +12,7 @@ namespace Arducam {
     const MAX_FIFO_SIZE = 0x5FFFF
     const BURST_FIFO_READ = 0x3C
 
-    let image: Array;
+    let image: Array<number>;
 
     function writeReg(addr: number, data: number) {
         pins.digitalWritePin(DigitalPin.P0, 0);
