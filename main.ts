@@ -63,7 +63,7 @@ namespace Arducam {
             let buf = pins.createBuffer(1)
             buf.setUint8(0, pins.spiWrite(0))
             serial.writeBuffer(buf)
-            frame.push(buf[0])
+            frame[0] = (buf[0])
         }
         pins.digitalWritePin(DigitalPin.P0, 1)
         return;
@@ -148,8 +148,8 @@ namespace Arducam {
 
 
     //% blockId=camera_image block="image"
-    export function image(): number[] {
-        return frame;
+    export function image(): number {
+        return frame[0];
     }
     
     
