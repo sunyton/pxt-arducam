@@ -63,7 +63,7 @@ namespace Arducam {
             let buf = pins.createBuffer(1)
             buf.setUint8(0, pins.spiWrite(0))
             serial.writeBuffer(buf)
-            basic.showNumber(buf[0])
+            // basic.showNumber(buf[0])
         }
         pins.digitalWritePin(DigitalPin.P0, 1)
         return;
